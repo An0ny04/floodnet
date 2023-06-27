@@ -1,0 +1,23 @@
+{% extends "dbase.html" %} {% load static %} {% block content %}
+<div class="pt-5"></div>
+<div class="table-responsive p-5">
+    <table class="table table-bordered border-dark">
+        <thead class="bg-inverse text-black">
+            <tr>
+                <th>ID</th>
+                <th>Image</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for image in images %}
+            {% with index=forloop.counter %}
+            <tr>
+                <td>{{ index }}</td>
+                <td><img src="{{ image.image.url}}" alt=""></td>
+            </tr>
+            {% endwith %}
+            {% endfor %}     
+        </tbody>
+    </table>
+  </div>
+  {% endblock %}
