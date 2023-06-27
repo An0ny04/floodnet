@@ -1,11 +1,14 @@
 {% extends "dbase.html" %} {% load static %} {% block content %}
 <div class="pt-5"></div>
 <div class="table-responsive p-5">
+    <a href="{% url 'download_excel' %}" class="btn btn-primary mt-3 mb-3">Download Excel</a>
     <table class="table table-bordered border-dark">
         <thead class="bg-inverse text-black">
             <tr>
                 <th>ID</th>
-                <th>Image</th>
+                <th>Image Name</th>
+                <th>User Name</th>
+                <th>Flooded</th>
             </tr>
         </thead>
         <tbody>
@@ -13,7 +16,9 @@
             {% with index=forloop.counter %}
             <tr>
                 <td>{{ index }}</td>
-                <td><img src="{{ image.image.url}}" alt=""></td>
+                <td>{{image.image.image_name}}</td>
+                <td>{{image.user.username}}</td>
+                <td>{{image.is_flooded}}</td>
             </tr>
             {% endwith %}
             {% endfor %}     

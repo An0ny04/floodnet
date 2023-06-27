@@ -42,16 +42,17 @@
           <!-- Sidebar navigation-->
           <nav class="sidebar-nav scroll-sidebar" data-simplebar="">
             <ul id="sidebarnav">
+              {% if user.is_superuser %}
               <li class="sidebar-item">
                 <a
                   class="sidebar-link"
-                  href="{% url 'home' %}"
+                  href="{% url 'dashboard' %}"
                   aria-expanded="false"
                 >
                   <span>
                     <i class="ti ti-layout-dashboard"></i>
                   </span>
-                  <span class="hide-menu">Dashboard</span>
+                  <span class="hide-menu">Admin Dashboard</span>
                 </a>
               </li>
               <li class="sidebar-item">
@@ -90,6 +91,33 @@
                   <span class="hide-menu">List Images</span>
                 </a>
               </li>
+              {% endif %}
+              {% if not user.is_superuser %}
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="{% url 'home' %}"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-layout-dashboard"></i>
+                  </span>
+                  <span class="hide-menu">Dashboard</span>
+                </a>
+              </li>
+              <li class="sidebar-item">
+                <a
+                  class="sidebar-link"
+                  href="{% url 'classification' %}"
+                  aria-expanded="false"
+                >
+                  <span>
+                    <i class="ti ti-photo-search"></i>
+                  </span>
+                  <span class="hide-menu">Image Classification</span>
+                </a>
+              </li>
+              {% endif %}
               <li class="sidebar-item">
                 <a
                   class="sidebar-link"
