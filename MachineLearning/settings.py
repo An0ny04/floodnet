@@ -25,7 +25,7 @@ SECRET_KEY = "django-insecure--4%2ska@2(e-8cay^npyru&sj+cpl&pft_3z3-oc416%-rvv7)
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['floodnet.up.railway.app','127.0.0.1']
 
 
 # Application definition
