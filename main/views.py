@@ -27,7 +27,8 @@ def dashboard_login(request):
         else:
             messages.error(request, 'Invalid username or password', extra_tags='login-error')  # Send an alert message
     return render(request, 'login.html')
-@login_required
+
+
 def dashboard_register(request):
     if request.method == 'POST':
         user_form = UserForm(request.POST)
@@ -36,6 +37,8 @@ def dashboard_register(request):
             signup = user_form.save()
             signup.password = make_password(user_form.cleaned_data['password'])
             signup.save()
+            messages.success(request, 'user created successfully')  # Send an alert message
+        
     return render(request, 'register.html')
 
 def dashboard_logout(request):
